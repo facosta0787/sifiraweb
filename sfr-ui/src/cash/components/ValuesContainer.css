@@ -1,0 +1,13 @@
+.header-container {
+  max-width: 800px;
+  width: 90%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.header-container .input {
+  width: 24.5%;
+  height: 30px;
+}

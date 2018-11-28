@@ -1,0 +1,44 @@
+{
+  "name": "sfr-api",
+  "version": "1.0.0",
+  "description": "API for sifira web project",
+  "main": "server.js",
+  "scripts": {
+    "start": "PORT=3000 node server.js",
+    "dev": "PORT=3000 nodemon server.js",
+    "docker:start": "npm run docker:build && npm run docker:run",
+    "docker:build": "docker build -t sifiraweb-api .",
+    "docker:run": "docker run -d --rm --name sifira-api -p 3000:3000 sifiraweb-api",
+    "docker:clear": "docker stop sifira-api && docker rmi sifiraweb-api"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.con/facosta0787/sifiraweb"
+  },
+  "keywords": [
+    "sifira",
+    "sifiraweb",
+    "node",
+    "javascript"
+  ],
+  "author": "@facosta0787",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^2.0.1",
+    "body-parser": "^1.18.3",
+    "chalk": "^2.4.1",
+    "cors": "^2.8.4",
+    "dotenv": "^6.1.0",
+    "express": "^4.16.3",
+    "express-asyncify": "^1.0.0",
+    "express-jwt": "^5.3.1",
+    "jsonwebtoken": "^8.3.0",
+    "path": "^0.12.7",
+    "query-string": "^6.1.0",
+    "sequelize": "^4.37.7",
+    "tedious": "^2.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.4"
+  }
+}

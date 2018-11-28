@@ -1,0 +1,26 @@
+{
+  "name": "sifiraweb",
+  "version": "1.0.0",
+  "description": "Sifiraweb project for babalu",
+  "main": "index.js",
+  "scripts": {
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:scale": "docker-compose up --scale sfr-api=3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.con/facosta0787/sifiraweb"
+  },
+  "keywords": [
+    "sifira",
+    "sifiraweb",
+    "reactjs",
+    "node",
+    "javascript",
+    "sequelize",
+    "mssql"
+  ],
+  "author": "@facosta0787",
+  "license": "MIT"
+}

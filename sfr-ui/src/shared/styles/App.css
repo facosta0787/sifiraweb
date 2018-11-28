@@ -1,0 +1,155 @@
+* {
+  font-family: 'Lato', sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+header{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+  /*border: 1px solid black;*/
+  z-index: 1000;
+}
+
+.menu-bar{
+  display: none;
+}
+
+header nav{
+  /*background: linear-gradient(to right, black 50%, #212121, #424242);*/
+  background-color: black;
+  z-index: 1000;
+  /*max-width: 1000px;*/
+  width: 100%;
+  /*margin: 20px auto;*/
+}
+
+header nav ul{
+  list-style: none;
+}
+
+header nav ul li{
+  display: inline-block;
+  position: relative;
+}
+
+header nav ul li:hover{
+  background: #212121;
+}
+
+header nav ul li a{
+  color: white;
+  display: block;
+  text-decoration: none;
+  padding: 12px 20px;
+}
+
+header nav ul li a:hover{
+  color: white;
+}
+
+header nav ul li a i{
+  margin-right: 10px;
+}
+
+nav ul li .caret{
+  position: relative;
+  margin-left: 10px;
+  margin-right: 0px;
+}
+
+/* nav ul li:hover .children {
+  display:block;
+} */
+.hovered {
+  display: block !important;
+}
+
+nav ul li .children {
+  display:none;
+  background: #424242;
+  position: absolute;
+  width: 150%;
+  z-index: 1000;
+}
+
+nav ul li .children li{
+  display: block;
+  border-bottom: 1px solid rgba(255,255,255,0.5);
+}
+
+nav ul li .children li a{
+  display: block;
+}
+
+@media screen and (max-width: 600px) {
+  nav{
+    padding-top: 44px;
+  }
+  .menu-bar{
+    display: block;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    /*background: linear-gradient(to right, black 50%, #212121, #424242);*/
+    background-color: black;
+    z-index: 1001;
+  }
+  .menu-bar .bt-menu{
+    display: block;
+    padding: 12px 20px;
+    color: white;
+    overflow: hidden;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  header nav {
+    width: 80%;
+    position: fixed;
+    /*right: 100%;*/
+    margin: 0;
+    overflow: hidden;
+    height: calc(100% - 44px);
+    transition: left 0.4s;
+    transition-timing-function: ease;
+  }
+  .menu-is-open{
+    left:0;
+  }
+  .menu-is-close{
+    left:-100%;
+  }
+  header nav ul li{
+    display: block;
+    border-bottom: 1px solid rgba(255,255,255,0.5);
+  }
+  #last-li{
+    border-bottom: 0px;
+  }
+  header nav ul li a{
+    display: block;
+  }
+  nav ul li .children{
+    display: none;
+  }
+  nav ul li:hover .children{
+    display: none;
+  }
+  nav ul li .children{
+    width: 100%;
+    position: relative;
+  }
+  nav ul li .children a{
+    margin-left: 12px;
+  }
+  nav ul li .caret{
+    float: right;
+  }
+
+}

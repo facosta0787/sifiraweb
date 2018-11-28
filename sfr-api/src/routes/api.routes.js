@@ -1,0 +1,18 @@
+const express = require('express')
+const { isAuthenticated } = require('../middlewares/auth.middleware')
+const stockController = require('../controllers/stock.controller')
+const cashController = require('../controllers/cash.controller')
+
+const router = express.Router()
+
+// stock routes /api...
+router.get('/invoices/:dni/:profile', isAuthenticated, stockController.getInvoicesCustomer)
+router.get('/names/:name', isAuthenticated, stockController.getCustomerNames)
+router.get('/stock', isAuthenticated, stockController.getPriceList)
+
+// cash routes /api...
+router.get('/cash/:id/:idStore/:date', isAuthenticated, cashController.getCashStore)
+router.post('/cash/calculate', isAuthenticated, cashController.calculateCash)
+router.post('/cash/save', isAuthenticated, cashController.saveCashStore)
+
+module.exports = router

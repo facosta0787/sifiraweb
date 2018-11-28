@@ -1,0 +1,22 @@
+version: '2.1'
+
+services:
+  sfr-api:
+    build: ./sfr-api
+    ports:
+      - "3000-3002:3000"
+    volumes:
+      - ./sfr-api:/usr/src/app
+      - /usr/src/app/node_modules
+
+  sfr-ui:
+    build: ./sfr-ui
+    environment:
+      NODE_ENV: production
+    depends_on:
+      - sfr-api
+    ports:
+      - "80:3000"
+    volumes:
+      - ./sfr-ui:/usr/src/app
+      - /usr/src/app/node_modules
