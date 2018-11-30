@@ -4,6 +4,7 @@
   "description": "Sifiraweb project for babalu",
   "main": "index.js",
   "scripts": {
+    "docker:build": "docker-compose build",
     "docker:up": "docker-compose up -d",
     "docker:down": "docker-compose down",
     "docker:scale": "docker-compose up --scale sfr-api=3"

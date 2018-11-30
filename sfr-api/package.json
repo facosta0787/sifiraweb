@@ -8,7 +8,7 @@
     "dev": "PORT=3000 nodemon server.js",
     "docker:start": "npm run docker:build && npm run docker:run",
     "docker:build": "docker build -t sifiraweb-api .",
-    "docker:run": "docker run -d --rm --name sifira-api -p 3000:3000 sifiraweb-api",
+    "docker:run": "docker run -d --rm --name sifira-api -p 3000:3000 --env-file ./.env sifiraweb-api",
     "docker:clear": "docker stop sifira-api && docker rmi sifiraweb-api"
   },
   "repository": {

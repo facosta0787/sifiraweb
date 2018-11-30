@@ -5,6 +5,8 @@ services:
     build: ./sfr-api
     ports:
       - "3000-3002:3000"
+    env_file:
+      - ./sfr-api/.env
     volumes:
       - ./sfr-api:/usr/src/app
       - /usr/src/app/node_modules
