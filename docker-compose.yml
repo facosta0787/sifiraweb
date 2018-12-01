@@ -1,24 +1,36 @@
-version: '2.1'
+version: '3.7'
 
 services:
+  sfr-db:
+    build: ./sfr-db
+    ports:
+      - "1433:1433"
+    volumes:
+      - "mssqldata:/var/opt/mssql/data:rw"
+    env_file:
+      - ./sfr-db/.env
+
   sfr-api:
     build: ./sfr-api
     ports:
       - "3000-3002:3000"
-    env_file:
-      - ./sfr-api/.env
+    depends_on:
+      - sfr-db
     volumes:
       - ./sfr-api:/usr/src/app
       - /usr/src/app/node_modules
+    env_file:
+      - ./sfr-api/.env
 
   sfr-ui:
     build: ./sfr-ui
-    environment:
-      NODE_ENV: production
-    depends_on:
-      - sfr-api
     ports:
       - "80:3000"
     volumes:
       - ./sfr-ui:/usr/src/app
       - /usr/src/app/node_modules
+    environment:
+      NODE_ENV: production
+
+volumes:
+  mssqldata:

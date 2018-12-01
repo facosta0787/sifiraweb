@@ -7,7 +7,8 @@
     "docker:build": "docker-compose build",
     "docker:up": "docker-compose up -d",
     "docker:down": "docker-compose down",
-    "docker:scale": "docker-compose up --scale sfr-api=3"
+    "docker:scale": "docker-compose up --scale sfr-api=3",
+    "docker:rmi": "docker rmi $(docker images --format \"{{.Repository}}\" | grep sifiraweb)"
   },
   "repository": {
     "type": "git",
