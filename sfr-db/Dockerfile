@@ -3,10 +3,9 @@ FROM microsoft/mssql-server-linux:latest
 ENV ACCEPT_EULA Y
 ENV TZ America/Bogota
 
-RUN apt update
-RUN apt install -y tzdata
-RUN echo "America/Bogota" > /etc/timezone
-RUN dpkg-reconfigure -f noninteractive tzdata
+RUN apt update && apt install -y tzdata
+RUN echo "America/Bogota" > /etc/timezone &&  \
+dpkg-reconfigure -f noninteractive tzdata
 
 EXPOSE 1433
 
