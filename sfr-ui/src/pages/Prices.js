@@ -38,7 +38,8 @@ class Prices extends Component {
     const { setAppLoading } = this.props.actions;
     const { idAlmacen } = this.props.user;
     setAppLoading(true);
-    axios.get(`http://localhost:3000/api/stock?ref=${ref}&desc=${desc}&idStore=${idAlmacen}`, {
+    const { apiUrl } = window
+    axios.get(`http://${apiUrl}/api/stock?ref=${ref}&desc=${desc}&idStore=${idAlmacen}`, {
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('token')}`,
       }

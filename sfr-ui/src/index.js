@@ -5,6 +5,8 @@ import { Provider } from 'react-redux';
 import store from './shared/redux/store';
 import AppRouter from './routes';
 
+window.apiUrl = process.env.REACT_APP_API;
+
 ReactDOM.render(
   <Provider store={store}>
     <Router>

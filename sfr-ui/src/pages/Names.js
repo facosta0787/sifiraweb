@@ -24,8 +24,8 @@ class Names extends Component {
     setAppLoading(true);
     const form = e.target;
     const { elements: { searcher: { value : name } } } = form;
-
-    axios.get(`http://localhost:3000/api/names/${name}`,{
+    const { apiUrl } = window
+    axios.get(`http://${apiUrl}/api/names/${name}`,{
       headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`},
     })
     .then(response => {

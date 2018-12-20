@@ -31,7 +31,8 @@ class Cash extends Component {
 
   fetchCash = (date) => {
     const { idAlmacen } = this.props.user
-    axios.get(`http://localhost:3000/api/cash/null/${idAlmacen}/${date}`,{
+    const { apiUrl } = window
+    axios.get(`http://${apiUrl}/api/cash/null/${idAlmacen}/${date}`,{
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('token')}`,
       }
@@ -50,8 +51,8 @@ class Cash extends Component {
   handleClickCalculate = (e) => {
     e.preventDefault()
     const { cash, cashDetails } = this.state.data;
-
-    axios.post(`http://localhost:3000/api/cash/calculate`,
+    const { apiUrl } = window
+    axios.post(`http://${apiUrl}/api/cash/calculate`,
     { cash, cashDetails },
     {
       headers: {

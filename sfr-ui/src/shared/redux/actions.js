@@ -38,7 +38,8 @@ function removeTokenUser() {
 
 //Actions
 export const setTokenUser = (username, password) => (dispatch) => {
-  axios.post('http://localhost:3000/auth/login',{
+  const { apiUrl } = window
+  axios.post(`http://${apiUrl}/auth/login`,{
     username,
     password
   })

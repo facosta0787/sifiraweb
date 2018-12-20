@@ -12,4 +12,4 @@ EXPOSE 3000
 
 COPY . .
 
-CMD npm start
+# CMD node scripts/start.js

@@ -8,6 +8,7 @@ const routesConfig = (app) => {
   const whitelist = [
     'http://localhost:3000',
     'http://localhost',
+    'http://localhost:5000',
   ]
 
   const corsOptions = {
@@ -15,7 +16,7 @@ const routesConfig = (app) => {
     optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
   }
 
-  app.use(cors(corsOptions))
+  app.use(cors())
   app.use('/', express.static(path.join(__dirname, 'public')))
   app.use('/auth', auth)
   app.use('/api', api)

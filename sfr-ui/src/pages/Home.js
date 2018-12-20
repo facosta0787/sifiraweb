@@ -38,8 +38,9 @@ class Home extends Component {
 
   handleGetInvoices = (dni) => {
     const { actions: setAppLoading, user: { perfil }} = this.props;
+    const { apiUrl } = window;
     setAppLoading(true);
-    axios.get(`http://localhost:3000/api/invoices/${dni}/${perfil}`, {
+    axios.get(`http://${apiUrl}/api/invoices/${dni}/${perfil}`, {
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('token')}`,
       }
