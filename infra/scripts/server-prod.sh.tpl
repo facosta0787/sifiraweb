@@ -39,4 +39,4 @@ DB_SCHEMA=${APP_DB_SCHEMA} \
 DB_USER=${APP_DB_USER} \
 DB_PASS=${APP_DB_PASS} \
 DB_PORT=1433 \
-docker-compose -f sifiraweb/docker-compose.yml up -d
+docker-compose -f sifiraweb/docker-compose-prod.yml up -d
