@@ -31,7 +31,7 @@ git clone https://github.com/facosta0787/sifiraweb.git
 
 #Executing the project
 sudo docker-compose -f sifiraweb/docker-compose.yml build
-git clone
+
 sudo URL=${PUBLIC_IP}:3000 \
 DB_TYPE=mssql \
 DB_HOST=${APP_DB_HOST} \
