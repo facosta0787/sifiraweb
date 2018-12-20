@@ -1,33 +1,15 @@
 version: '3.3'
 
 services:
-  # sfr-db:
-  #   build: ./sfr-db
-  #   ports:
-  #     - "1433:1433"
-  #   volumes:
-  #     - "mssqldata:/var/opt/mssql/data:rw"
-  #   env_file:
-  #     - ./sfr-db/.env
-
   sfr-api:
     build: ./sfr-api
     ports:
       - "3000:3000"
-    # depends_on:
-    #   - sfr-db
     volumes:
       - ./sfr-api:/usr/src/app
-      - /usr/src/app/node_modules
-    # env_file:
-    #   - ./sfr-api/.env
-    environment:
-      DB_TYPE: $DB_TYPE
-      DB_HOST: $DB_HOST
-      DB_SCHEMA: $DB_SCHEMA
-      DB_USER: $DB_USER
-      DB_PASS: $DB_PASS
-      DB_PORT: $DB_PORT
+      - /usr/src/app/node_modules #exclude this folder in the volume
+    env_file:
+      - ./sfr-api/.env
 
   sfr-ui:
     build: ./sfr-ui
@@ -35,11 +17,22 @@ services:
       - "80:3000"
     volumes:
       - ./sfr-ui:/usr/src/app
-      - /usr/src/app/node_modules
+      - /usr/src/app/node_modules #exclude this folder in the volume
     environment:
       NODE_ENV: production
       REACT_APP_API: $URL
     command: node scripts/start.js
+
+  # sfr-db:
+  #   build: ./sfr-db
+  #   ports:
+  #     - "1433:1433"
+  #   depends_on:
+  #     - sfr-api
+  #   volumes:
+  #     - "mssqldata:/var/opt/mssql/data:rw"
+  #   env_file:
+  #     - ./sfr-db/.env
 
 # volumes:
 #   mssqldata:
