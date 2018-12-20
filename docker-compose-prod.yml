@@ -1,0 +1,29 @@
+version: '3.3'
+
+services:
+  sfr-api:
+    build: ./sfr-api
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./sfr-api:/usr/src/app
+      - /usr/src/app/node_modules
+    environment:
+      DB_TYPE: $DB_TYPE
+      DB_HOST: $DB_HOST
+      DB_SCHEMA: $DB_SCHEMA
+      DB_USER: $DB_USER
+      DB_PASS: $DB_PASS
+      DB_PORT: $DB_PORT
+
+  sfr-ui:
+    build: ./sfr-ui
+    ports:
+      - "80:3000"
+    volumes:
+      - ./sfr-ui:/usr/src/app
+      - /usr/src/app/node_modules
+    environment:
+      NODE_ENV: production
+      REACT_APP_API: $URL
+    command: node scripts/start.js
