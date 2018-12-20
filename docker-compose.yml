@@ -14,13 +14,13 @@ services:
   sfr-ui:
     build: ./sfr-ui
     ports:
-      - "80:3000"
+      - "5000:3000"
     volumes:
       - ./sfr-ui:/usr/src/app
       - /usr/src/app/node_modules #exclude this folder in the volume
     environment:
       NODE_ENV: production
-      REACT_APP_API: $URL
+      REACT_APP_API: localhost:3000
     command: node scripts/start.js
 
   # sfr-db:
