@@ -4,14 +4,14 @@
   "description": "Front-End for sifira web project",
   "private": true,
   "scripts": {
-    "start": "REACT_APP_API=localhost:3000 PORT=3000 node scripts/start.js",
+    "start": "REACT_APP_API=localhost:3000 PORT=5000 node scripts/start.js",
     "build": "REACT_APP_API=localhost:3000 node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "serve": "serve -s build",
     "docker:start": "npm run docker:build && npm run docker:run",
     "docker:build": "docker build -t sifiraweb-ui .",
     "docker:run": "docker run -d --rm --name sifira-ui -p 80:3000 sifiraweb-ui",
-    "docker:clear": "docker stop sifira-ui && docker rmi sifiraweb-ui"
+    "docker:clear": "docker stop sifira-ui && docker rmi sifiraweb-ui && docker images"
   },
   "repository": {
     "type": "git",

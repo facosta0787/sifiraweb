@@ -12,4 +12,4 @@ EXPOSE 3000
 
 COPY . .
 
-CMD npm start
+CMD REACT_APP_API=localhost:3000 PORT=3000 node scripts/start.js
