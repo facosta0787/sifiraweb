@@ -1,5 +1,5 @@
 node_modules
-sfr-ui/.build
+sfr-ui/build
 .env
 .vscode
 .DS_Store
