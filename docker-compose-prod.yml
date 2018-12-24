@@ -21,11 +21,7 @@ services:
       context: ./sfr-ui
       dockerfile: Dockerfile-prod
     ports:
-      - "80:3000"
-    # volumes:
-    #   - ./sfr-ui:/usr/src/app
-    #   - /usr/src/app/node_modules
+      - "80:80"
     environment:
       NODE_ENV: production
       REACT_APP_API: $URL
-    # command: node scripts/start.js

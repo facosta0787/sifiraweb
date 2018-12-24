@@ -30,10 +30,10 @@ fi
 git clone https://github.com/facosta0787/sifiraweb.git
 
 #building ui project
-cd sifira/sfr-ui && \
-npm install && \
-REACT_APP_API=${PUBLIC_IP}:3000 node scripts/build.js && \
-cd ../..
+cd sifiraweb/sfr-ui && \
+sudo npm install && \
+sudo REACT_APP_API=${PUBLIC_IP}:3000 node scripts/build.js && \
+cd /
 
 #Executing the project
 sudo URL=${PUBLIC_IP}:3000 \
