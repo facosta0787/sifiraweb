@@ -2,14 +2,12 @@ version: '3.3'
 
 services:
   sfr-api:
-    build:
-      context: ./sfr-ui
-      dockerfile: Dockerfile-prod
+    build: ./sfr-api
     ports:
       - "3000:3000"
-    # volumes:
-    #   - ./sfr-api:/usr/src/app
-    #   - /usr/src/app/node_modules
+    volumes:
+      - ./sfr-api:/usr/src/app
+      - /usr/src/app/node_modules
     environment:
       DB_TYPE: $DB_TYPE
       DB_HOST: $DB_HOST
@@ -19,13 +17,15 @@ services:
       DB_PORT: $DB_PORT
 
   sfr-ui:
-    build: ./sfr-ui
+    build:
+      context: ./sfr-ui
+      dockerfile: Dockerfile-prod
     ports:
       - "80:3000"
-    volumes:
-      - ./sfr-ui:/usr/src/app
-      - /usr/src/app/node_modules
+    # volumes:
+    #   - ./sfr-ui:/usr/src/app
+    #   - /usr/src/app/node_modules
     environment:
       NODE_ENV: production
       REACT_APP_API: $URL
-    command: node scripts/start.js
+    # command: node scripts/start.js

@@ -4,7 +4,7 @@ sfr-ui/build
 .vscode
 .DS_Store
 
-.terraform
+.terraform*
 terraform.tfvars
-terraform.tfstate*
+terraform.tfstate
 terraform.tfstate.backup
