@@ -21,7 +21,6 @@ services:
     environment:
       NODE_ENV: production
       REACT_APP_API: localhost:3000
-    command: node scripts/start.js
 
   # sfr-db:
   #   build: ./sfr-db

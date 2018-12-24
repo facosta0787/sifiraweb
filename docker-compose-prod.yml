@@ -2,12 +2,11 @@ version: '3.3'
 
 services:
   sfr-api:
-    build: ./sfr-api
+    build:
+      context: ./sfr-api
+      dockerfile: dockerfile-prod
     ports:
       - "3000:3000"
-    volumes:
-      - ./sfr-api:/usr/src/app
-      - /usr/src/app/node_modules
     environment:
       DB_TYPE: $DB_TYPE
       DB_HOST: $DB_HOST
@@ -19,7 +18,7 @@ services:
   sfr-ui:
     build:
       context: ./sfr-ui
-      dockerfile: Dockerfile-prod
+      dockerfile: dockerfile-prod
     ports:
       - "80:80"
     environment:
