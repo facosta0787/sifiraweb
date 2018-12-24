@@ -9,7 +9,9 @@
     "docker:down": "docker-compose -f docker-compose-dev.yml down",
     "docker:scale": "docker-compose -f docker-compose-dev.yml up --scale sfr-api=3",
     "docker:rm": "docker rm $(docker ps -a --format \"{{.Names}}\" | grep sifira)",
-    "docker:rmi": "docker rmi $(docker images --format \"{{.Repository}}\" | grep sifiraweb)"
+    "docker:rmi": "docker rmi $(docker images --format \"{{.Repository}}\" | grep sifiraweb)",
+    "docker:start": "npm run docker:build && npm run docker:up",
+    "docker:clear": "npm run docker:down && npm run docker:rmi"
   },
   "repository": {
     "type": "git",
