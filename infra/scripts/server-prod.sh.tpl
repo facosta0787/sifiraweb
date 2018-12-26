@@ -33,7 +33,7 @@ git=$(git --version)
 if [ "$git" == 0 ]; then
   sudo apt install git -y
 else
-  echo git
+  echo $git
 
 fi
 
