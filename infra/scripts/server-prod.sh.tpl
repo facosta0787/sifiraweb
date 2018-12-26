@@ -34,7 +34,6 @@ if [ "$git" == 0 ]; then
   sudo apt install git -y
 else
   echo $git
-
 fi
 
 #Downloading the project
