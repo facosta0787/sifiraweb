@@ -4,6 +4,8 @@ ENV NODE_ENV production
 
 WORKDIR /usr/share/nginx/html
 
+RUN rm -R *
+
 EXPOSE 80
 
 COPY ./build .

@@ -1,13 +1,5 @@
 #!/bin/bash
 
-#Installing Curl
-ver=$(curl -V)
-if [ ${#ver} -eq 0 ]; then
-  sudo apt install curl -y
-else
-  echo ${ver:0:11}
-fi
-
 #Installing node 8.x lts
 curl -sL https://deb.nodesource.com/setup_8.x -o nodesource_setup.sh
 sudo bash nodesource_setup.sh
