@@ -4,6 +4,9 @@ const getInvoicesCustomer = async (req, res) => {
   const { dni, profile } = req.params
   const { findInvoincesCustomer } = service
   const invoices = await findInvoincesCustomer(dni, profile)
+
+  if (invoices.error) return res.status(500).json(invoices)
+
   return res.status(200).json(invoices)
 }
 

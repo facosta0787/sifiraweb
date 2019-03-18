@@ -10,11 +10,14 @@ const findInvoincesCustomer = async (cod, profile) => {
   try {
     const customer = await db.query(`exec usp_ConsultaNomCliente '01', :cod`,
     { replacements: { cod, profile }, type})
-    const invoices = await db.query(`exec usp_ConsultaCedula '01', :cod, :profile`,
+    const invoices = await db.query(`exec usp_consultaFacturasCliente '01', :cod, :profile`,
     { replacements: { cod, profile }, type})
     return {customer: customer[0], invoices}
   } catch (error) {
-    return error
+    return {
+      error: true,
+      message: error.message,
+    }
   }
 }
 
@@ -22,7 +25,7 @@ const findCustomerNames = async (name) => {
   if (!name || name === '')  return {}
 
   try {
-    return await db.query(`exec usp_ConsultaNombre :name`,
+    return await db.query(`exec usp_consultaClientesPorNombre :name`,
     { replacements: { name }, type})
   } catch (error) {
     return error
