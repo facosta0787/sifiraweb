@@ -18,5 +18,5 @@ app.listen(PORT, (error) => {
         console.log(error)
         process.exit(1)
     }
-    console.log(chalk.green(`[app-server] Server is running and listening on http://localhost:${PORT}`))
+    console.log(`${chalk.green('[app-server]')} Server is running and listening on http://localhost:${PORT}`)
 })

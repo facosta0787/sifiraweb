@@ -2,11 +2,11 @@ const Sequelize = require('sequelize')
 const config = require ('../config')
 
 const { database } = config
-let _dbinstance = null
+let conn = null
 
 module.exports = function dbinstance() {
-    if(!_dbinstance){
-        _dbinstance = new Sequelize(database.schema, database.user, database.password,
+    if(!conn){
+        conn = new Sequelize(database.schema, database.user, database.password,
         {
             host: database.host,
             dialect: database.dialect,
@@ -14,8 +14,9 @@ module.exports = function dbinstance() {
             query: {
                 raw: false
             },
-            logging: database.log
+            logging: database.log,
+            operatorsAliases: Sequelize.Op
         })
     }
-    return _dbinstance
+    return conn
 }
