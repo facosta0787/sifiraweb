@@ -1,0 +1,11 @@
+aws-access-key=""
+aws-secret-key=""
+aws-region=""
+aws-ami=""
+aws-instance-type=""
+aws-ssh-key=""
+
+app-db-host=""
+app-db-schema=""
+app-db-user=""
+app-db-password=""
