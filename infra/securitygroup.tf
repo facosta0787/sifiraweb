@@ -32,7 +32,7 @@ resource "aws_security_group" "sgp-sifira" {
 
   revoke_rules_on_delete = false
 
-  tags {
+  tags = {
     Name = "sifiraweb-resources"
   }
 }

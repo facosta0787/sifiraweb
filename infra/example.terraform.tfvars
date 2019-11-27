@@ -1,8 +1,8 @@
 aws-access-key=""
 aws-secret-key=""
-aws-region=""
-aws-ami=""
-aws-instance-type=""
+aws-region="us-east-1"
+aws-ami="ami-04b9e92b5572fa0d1"
+aws-instance-type="t2.micro"
 aws-ssh-key=""
 
 app-db-host=""
