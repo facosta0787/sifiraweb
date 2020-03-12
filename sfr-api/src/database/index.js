@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize')
 const config = require ('../config')
+const tedious = require('tedious')
 
 const { database } = config
 let conn = null
@@ -10,6 +11,7 @@ module.exports = function dbinstance() {
         {
             host: database.host,
             dialect: database.dialect,
+            dialectModule: tedious,
             port: database.port,
             query: {
                 raw: false
