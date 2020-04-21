@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 const isInLoginRoute = () => {
   const { pathname } = window.location;
-  return pathname === '/login' ? true : false;
+  return pathname === '/login';
 };
 
 class App extends Component {
@@ -25,6 +25,7 @@ export default withRouter(App);
 
 const Contaider = styled.div`
   width: 95%;
+  max-width: 1024px;
   margin: 0 auto;
   @media (max-width: 768px) {
     width: 98%;

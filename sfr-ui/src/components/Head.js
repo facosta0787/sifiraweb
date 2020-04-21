@@ -21,13 +21,15 @@ class Head extends Component {
   render() {
     return (
       <header>
-        <div className="menu-bar">
-          <a className="bt-menu" onClick={this.handleClick}>
-            <i className="fa fa-bars" aria-hidden="true" />
-            &nbsp;&nbsp;&nbsp;SIFIRA WEB
-          </a>
+        <div className="container">
+          <div className="menu-bar">
+            <a className="bt-menu" onClick={this.handleClick}>
+              <i className="fa fa-bars" aria-hidden="true" />
+              &nbsp;&nbsp;&nbsp;SIFIRA WEB
+            </a>
+          </div>
+          <Menu handleOpenCloseMenu={this.handleClick} />
         </div>
-        <Menu handleOpenCloseMenu={this.handleClick} />
       </header>
     );
   }

@@ -8,7 +8,7 @@ import Values from '../cash/components/Values';
 import { number } from '../shared/utils/stringFormats';
 
 
-import './Cash.css';
+import '../shared/styles/Cash.css';
 
 const DATE_FORMAT = 'YYYYMMDD';
 
